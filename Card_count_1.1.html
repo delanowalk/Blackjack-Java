@@ -1,0 +1,61 @@
+ <!-- 
+"""
+Created on Sat Mar  9 15:57:10 2024
+
+@author: dwalker
+
+Ai Black Jack website
+html
+"""
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Black Jack Card Counting Test</title>
+        <link rel="stylesheet" href="blackjack.css">
+        <script src="Card_count_1.1.js"></script>
+    </head>
+    
+    <body>
+        <div id="top">Blackjack</div>
+        <div class="container">
+            <div id="main">
+                <h2>Dealer: <span id="dealer-shown-sum"></span></h2>
+
+                <div id="dealer-cards">
+                    <img class="card" id="shown" src="./cards/BACK.png">
+                    <img class="card" id="hidden" src="./cards/BACK.png">
+                </div>
+
+                <h2>You: <span id="your-sum"></span></h2>
+
+                <div id="your-cards">
+                    <img class="card" id="your_hidden0" src="./cards/BACK.png">
+                    <img class="card" id="your_hidden1" src="./cards/BACK.png">
+                </div>
+
+                <br>
+                <button class="actionButton" onclick="hit()" >Hit</button>
+                <button class="actionButton" onclick="double()" >Double</button>
+                <button class="actionButton" onclick="stay()" >Stay</button>
+                <p id="results"></p>
+                <div>
+                    <a href="Card_count_1.1.html" >
+                        <button id="Reset" > Reset </button>
+                    </a>
+                    <button class="actionButton" onclick="startGame()" >Start</button>
+                </div>
+            </div>
+            <div id="rightSide">
+                <h2> Deck Stats</h2>
+                <button class="actionButton" onclick="Stats()" >Stats</button>
+            </div>
+        </div>
+    </body>
+</html>
+    
+    
+        

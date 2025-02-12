@@ -13,8 +13,8 @@ hit and stand fixed dealer plays a s17 game
 
 let dealerCards = [];
 let playerCards = [];
-let canHit = true;
-let cardsPlayed = 0;
+let canHit = false;
+let cardsPlayed = [];
 let deck = [];
 
 function buildDeck() {
@@ -41,18 +41,23 @@ function shuffleDeck() {
 }
 
 function startGame() {
+    canHit = true;
     buildDeck();
     shuffleDeck();
-    console.log(deck)
+    console.log(deck);
+
+    let card = deck.at(-1);
+    cardsPlayed.push(card);
     let shown = deck.pop();
-    cardsPlayed += 1;
+
     //let dealerCards = [];
     dealerCards.push(shown);
     let dealerShowSum = getValue(dealerCards);
+    card = deck.at(-1);
+    cardsPlayed.push(card);
 
     let hidden = deck.pop();
     dealerCards.push(hidden);
-    cardsPlayed += 1;
 
     let cardImg = document.createElement("img");
     cardImg.src = "./cards/" + shown + ".png";
@@ -65,6 +70,7 @@ function startGame() {
         let cardImg = document.createElement("img");
         let cards = deck.pop();
         playerCards.push(cards);
+        cardsPlayed.push(cards);
         cardImg.src = "./cards/" + cards + ".png";
         document.getElementById("your_hidden"+i).src = "./cards/" + cards + ".png";
     }
@@ -72,7 +78,9 @@ function startGame() {
     let PlayerSum = getValue(playerCards);
     document.getElementById("your-sum").innerText = "" + PlayerSum;
 }
-
+/*
+unused function/ test function
+ */
 function startHand() {
 
     //console.log(deck);
@@ -99,8 +107,12 @@ function startHand() {
     document.getElementById("your-sum").innerText = yourSum;
 
 }
-function hit() {
 
+
+function hit() {
+    if (canHit = false){
+        return
+    }
     let dealerSum = getValue(dealerCards);
     let playerSum = getValue(playerCards);
 
@@ -112,6 +124,10 @@ function hit() {
         return
     }
     else{
+        let cards = deck.at(-1);
+        console.log(cards);
+        cardsPlayed.push(cards);
+
         let card = deck.pop();
         playerCards.push(card);
         console.log(playerCards);
@@ -220,3 +236,6 @@ function getValue(Hand) {
 }
 
 
+function Stats() {
+    console.log(cardsPlayed);
+}

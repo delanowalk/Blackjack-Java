@@ -54,7 +54,7 @@ function startGame() {
     dealerCards.push(shown);
     let dealerShowSum = getValue(dealerCards);
     card = deck.at(-1);
-    cardsPlayed.push(card);
+    //cardsPlayed.push(card);
 
     let hidden = deck.pop();
     dealerCards.push(hidden);
@@ -155,6 +155,10 @@ function stay() {
     let dealerSum = getValue(dealerCards);
     let playerSum = getValue(playerCards);
 
+    console.log(dealerCards)
+
+    let card = dealerCards.at(-1);
+    cardsPlayed.push(card);
     canHit = false;
     document.getElementById("hidden").src = "./cards/" + dealerCards[1] + ".png";
 
@@ -162,6 +166,8 @@ function stay() {
         let card;
         card = deck.pop();
         dealerCards.push(card);
+        let cards = dealerCards.at(-1);
+        cardsPlayed.push(cards);
         let cardImg = document.createElement("img");
         cardImg.src = "./cards/" + card + ".png";
         document.getElementById("dealer-cards").append(cardImg);
@@ -228,14 +234,65 @@ function getValue(Hand) {
         hand_total = intHandValues[i] + hand_total;
     }
     while(hand_total > 21 && AceCount > 0){
-        hand_total = hand_total - 10
-        AceCount = AceCount - 1
+        hand_total = hand_total - 10;
+        AceCount = AceCount - 1;
     }
     //console.log(hand_total);
-    return hand_total
+    return hand_total;
 }
 
 
 function Stats() {
     console.log(cardsPlayed);
+    let running_Count = cardCount(cardsPlayed);
+    console.log(running_Count);
+    document.getElementById("your-stats").innerText = "" + running_Count;
 }
+
+function cardCount(cardsPlayed){
+    let running_Count = 0;
+    let card_Count = [];
+    for (let i = 0; i < cardsPlayed.length; i++) {
+        let data = cardsPlayed[i].split("-");
+        card_Count.push(data[0]);
+    }
+    console.log(card_Count)
+    //subtracting from the count
+    for (let i = 0; i < card_Count.length; i++) {
+        if (card_Count[i] === 'A') {
+        running_Count -= 1;
+        }
+        else if (card_Count[i] === 'K') {
+            running_Count -= 1;
+        }
+        else if (card_Count[i] === 'Q') {
+            running_Count -= 1;
+        }
+        else if (card_Count[i] === 'J') {
+            running_Count -= 1;
+        }
+        else if (card_Count[i] === '10') {
+            running_Count -= 1;
+        }
+
+        //adding to the count
+        else if (card_Count[i] === '6') {
+            running_Count += 1;
+        }
+        else if (card_Count[i] === '5') {
+            running_Count += 1;
+        }
+        else if (card_Count[i] === '4') {
+            running_Count += 1;
+        }
+        else if (card_Count[i] === '3') {
+            running_Count += 1;
+        }
+        else if (card_Count[i] === '2') {
+            running_Count += 1;
+        }
+    }
+
+    return running_Count;
+}
+

@@ -1,0 +1,83 @@
+ <!-- 
+"""
+Created on Sat Mar  9 15:57:10 2024
+
+@author: dwalker
+
+Black Jack website
+html
+"""
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Black Jack Card Counting Test</title>
+        <link rel="stylesheet" href="blackjack.css">
+        <script src="Card_count_1.2.js"></script>
+    </head>
+    
+    <body>
+        <div id="top">Blackjack</div>
+        <div class="container">
+            <div id="main">
+                <h2>Dealer: <span id="dealer-shown-sum"></span></h2>
+
+                <div id="dealer-cards">
+                    <img class="card" id="shown" src="./cards/BACK.png">
+                    <img class="card" id="hidden" src="./cards/BACK.png">
+                </div>
+
+                <h2>You: <span id="your-sum"></span></h2>
+
+                <div id="your-cards">
+                    <img class="card" id="your_hidden0" src="./cards/BACK.png"></img>
+                    <img class="card" id="your_hidden1" src="./cards/BACK.png"></img>
+                </div>
+
+                <br>
+                <button class="actionButton" id= "hit" onclick="hit()" >Hit</button>
+                <button class="actionButton" onclick="double()" >Double</button>
+                <button class="actionButton" onclick="stay()" >Stay</button>
+                <p id="results"></p>
+                <div>
+                    <a href="Card_count_1.2.html" >
+                        <button id="Reset" > Reset </button>
+                    </a>
+                    <button class="actionButton" onclick="playGame()" >Start</button>
+                    <button class="actionButton" onclick="newHand()" >Next</button>
+                </div>
+                <br>
+                <div>
+                    <button id="100_chip" onclick="bet_amount(100)">
+                        <img src="chips/Black.png" height="100" width="100">
+                    </button>
+                    <button id="50_chip" onclick="bet_amount(50)">
+                        <img src="chips/Green.png" height="100" width="100">
+                    </button>
+                    <button id="25_chip" onclick="bet_amount(25)">
+                        <img src="chips/Blue.png" height="100" width="100">
+                    </button>
+                    <button id="10_chip"onclick="bet_amount(10)">
+                        <img src="chips/White.png" height="100" width="100">
+                    </button>
+                    <button id="5_chip" onclick="bet_amount(5)">
+                        <img src="chips/Red.png" height="100" width="100">
+                    </button>
+                </div>
+            </div>
+            <div id="rightSide">
+                <h2> Deck Stats</h2>
+                <button class="actionButton" onclick="Stats()" >Stats</button>
+                <h2>running count: <span id="your-stats"></span></h2>
+                <h2>Bankroll: <span id="bankroll"></span></h2>
+                <h2>Bet: <span id="bet_number"></span></h2>
+            </div>
+        </div>
+    </body>
+</html>
+    
+    
+        

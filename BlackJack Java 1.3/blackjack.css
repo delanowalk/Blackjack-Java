@@ -1,0 +1,98 @@
+/* 
+"""
+Created on Sat Mar  9 15:57:10 2024
+
+@author: dwalker
+
+Black Jack website
+css
+"""
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    z-index: 100;
+}
+
+#dealer-cards img {
+    height: 140px;
+    width: 100px;
+    margin: 1px;
+    z-index: 100;
+}
+
+#your-cards img {
+    height: 140px;
+    width: 100px;
+    margin: 1px;
+}
+
+.actionButton {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#Reset {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+        }
+
+#main{
+    width: 70%;
+    height: 1000px;
+    background-color: green;
+}
+
+#rightSide{
+    width: 30%;
+    height: 1000px;
+    background-color: lightblue;
+}
+
+#top{
+    background-color: #0c950c;
+    font-style: normal;
+    font-size: xxx-large;
+}
+
+.card{
+    width: 500px;
+    height: 726px;
+}
+
+.chips {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    color: green;
+    border: 0;
+}
+
+.chip_number{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+}
+
+.green{
+    background-color: green;
+    color: green;
+    z-index: 100;
+}
+#my-overlay {
+    position: fixed;
+    top: 13%;
+    left: 25%;
+    width: 20%;
+    height: 45%;
+    background-color: white; /* Semi-transparent black overlay */
+    z-index: 50; /* Higher z-index to ensure it's on top */
+}
